@@ -3,7 +3,27 @@
   <head>
     <meta charset="utf-8" />
     <title>TicTacToeGame</title>
+    <link rel="stylesheet" href="vendors/reset.css" />
     <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
-  <body></body>
+  <body>
+    <div class="full-page-container">
+      <header>
+        <div class="score-board-left">
+          <h2>Red:</h2>
+          <p id="red-score">0</p>
+        </div>
+        <div class="score-board-right">
+          <h2>Blue:</h2>
+          <p id="blue-score">0</p>
+        </div>
+      </header>
+      <main>
+        <div class="current-player">Current Player:</div>
+
+        <div class="main-game-area"></div>
+      </main>
+    </div>
+  </body>
 </html>
