@@ -1,5 +1,5 @@
 console.log("Loaded file");
-
+var pause = false;
 var modalClose = document.getElementById("close");
 modalClose.addEventListener("click", close);
 document.getElementById("table").addEventListener("click", makeMove);
@@ -20,6 +20,7 @@ for (var i = 0, row; row = table.rows[i]; i++) {
 }
 
 function WriteBoard() {
+  if(!pause) {
   console.log("WriteBoard() function reached");
   var player = document.getElementById("current-player");
 
@@ -48,10 +49,12 @@ function WriteBoard() {
   if(slotsLeft === 0)
   {
     shouldQuit=true;
-    DisplayModal();
+    DisplayModal("Its a TIE!");
   }
+  CheckWinner();
 
   // MainGameLoop();
+  }
 }
 
 
@@ -92,9 +95,10 @@ function MainGameLoop()
 
 
 //Display Modal
-function DisplayModal()
+function DisplayModal(s)
 {
   let modal = document.getElementById("modal-holder");
+  document.getElementById("modal-content").textContent=s;
   modal.style.display="block";
 }
 
@@ -128,4 +132,71 @@ function ResetBoard()
        col.textContent="-";
      }
   }
+}
+
+function CheckWinner()
+{
+  console.log("checking winner");
+  var table = document.getElementById("table");
+
+
+  for (var i = 0, row; row = table.rows[i]; i++) {
+     //iterate through rows
+     //rows would be accessed using the "row" variable assigned in the for loop
+     for (var j = 0, col; col = row.cells[j]; j++) {
+       //iterate through columns
+       //columns would be accessed using the "col" variable assigned in the for loop
+       if(row.cells[0].textContent === "X" && row.cells[1].textContent === "X" && row.cells[2].textContent === "X")
+       {
+         DisplayModal("Blue Wins!");
+         pause = true;
+       }
+       if(row.cells[0].textContent === "O" && row.cells[1].textContent === "O" && row.cells[2].textContent === "O")
+       {
+         DisplayModal("Red Wins!");
+         pause = true;
+       }
+       if(row.cells[0].textContent === "X" && row.cells[4].textContent === "X" && row.cells[8].textContent === "X")
+       {
+         DisplayModal("Blue Wins!");
+         pause = true;
+       }
+        if(row.cells[0].textContent === "O" && row.cells[4].textContent === "O" && row.cells[8].textContent === "O")
+       {
+         DisplayModal("Red Wins!");
+         pause = true;
+       }
+        if(row.cells[3].textContent === "X" && row.cells[4].textContent === "X" && row.cells[5].textContent === "X")
+       {
+         DisplayModal("Blue Wins!");
+         pause = true;
+       }
+       if(row.cells[3].textContent === "O" && row.cells[4].textContent === "O" && row.cells[5].textContent === "O")
+       {
+         DisplayModal("Red Wins!");
+         pause = true;
+       }
+       if(row.cells[6].textContent === "X" && row.cells[7].textContent === "X" && row.cells[8].textContent === "X")
+       {
+         DisplayModal("Blue Wins!");
+         pause = true;
+       }
+      if(row.cells[6].textContent === "O" && row.cells[7].textContent === "O" && row.cells[8].textContent === "O")
+       {
+         DisplayModal("Red Wins!");
+         pause = true;
+       }
+       if(row.cells[6].textContent === "X" && row.cells[4].textContent === "X" && row.cells[2].textContent === "X")
+       {
+         DisplayModal("Blue Wins!");
+         pause = true;
+       }
+       if(row.cells[6].textContent === "O" && row.cells[4].textContent === "O" && row.cells[2].textContent === "O")
+       {
+         DisplayModal("Red Wins!");
+         pause = true;
+
+     }
+  }
+}
 }
