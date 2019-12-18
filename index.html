@@ -10,6 +10,16 @@
   </head>
   <body onload="WriteBoard()">
     <div class="full-page-container">
+        <div class="modal-holder" id="modal-holder">
+            <div class="modal" id="modal">
+                <span class="modal-heading">TicTacToeGame says:</span>
+                <span class="modal-close" id="close">X</span>
+                <div class="modal-content">
+                    text
+                </div>
+            </div>
+        </div>
+
       <header>
         <div class="score-board-left">
           <h2>Red:</h2>
@@ -30,26 +40,26 @@
           <table id="table">
               <tbody>
                   <tr>
-                      <td>-</td>
-                      <td>-</td>
-                      <td>-</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                   </tr>
                   <tr>
-                      <td>-</td>
-                      <td>-</td>
-                      <td>-</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                   </tr>
                   <tr>
-                      <td>-</td>
-                      <td>-</td>
-                      <td>-</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                   </tr>
               </tbody>
           </table>
         </div>
       </main>
       <footer>
-          <button type="button" name="button">Reset</button>
+          <button type="button" name="button" onclick="ResetBoard()">Reset</button>
       </footer>
 
     </div>
