@@ -111,6 +111,13 @@ function ResetBoard() {
       col.textContent = "-";
     }
   }
+  firstRow.fill("-");
+  secondRow.fill("-");
+  thirdRow.fill("-");
+
+  sign = "X";
+  pause = false;
+  WriteBoard();
 }
 
 function CheckWinner() {
@@ -133,5 +140,120 @@ function CheckWinner() {
         thirdRow[j] = col;
       }
     }
+  }
+  //Verbose logic for checking winner!
+
+  if (
+    firstRow[0].textContent === "X" &&
+    firstRow[1].textContent === "X" &&
+    firstRow[2].textContent === "X"
+  ) {
+    pause = true;
+    DisplayModal("Blue Won!");
+  } else if (
+    firstRow[0].textContent === "O" &&
+    firstRow[1].textContent === "O" &&
+    firstRow[2].textContent === "O"
+  ) {
+    pause = true;
+    DisplayModal("Red Won!");
+  } else if (
+    secondRow[0].textContent === "X" &&
+    secondRow[1].textContent === "X" &&
+    secondRow[2].textContent === "X"
+  ) {
+    pause = true;
+    DisplayModal("Blue Won!");
+  } else if (
+    secondRow[0].textContent === "O" &&
+    secondRow[1].textContent === "O" &&
+    secondRow[2].textContent === "O"
+  ) {
+    pause = true;
+    DisplayModal("Red Won!");
+  } else if (
+    thirdRow[0].textContent === "X" &&
+    thirdRow[1].textContent === "X" &&
+    thirdRow[2].textContent === "X"
+  ) {
+    pause = true;
+    DisplayModal("Blue Won!");
+  } else if (
+    thirdRow[0].textContent === "O" &&
+    thirdRow[1].textContent === "O" &&
+    thirdRow[2].textContent === "O"
+  ) {
+    pause = true;
+    DisplayModal("Red Won!");
+  } else if (
+    firstRow[0].textContent === "X" &&
+    secondRow[0].textContent === "X" &&
+    thirdRow[0].textContent === "X"
+  ) {
+    pause = true;
+    DisplayModal("Blue Won!");
+  } else if (
+    firstRow[0].textContent === "O" &&
+    secondRow[0].textContent === "O" &&
+    thirdRow[0].textContent === "O"
+  ) {
+    pause = true;
+    DisplayModal("Red Won!");
+  } else if (
+    firstRow[1].textContent === "X" &&
+    secondRow[1].textContent === "X" &&
+    thirdRow[1].textContent === "X"
+  ) {
+    pause = true;
+    DisplayModal("Blue Won!");
+  } else if (
+    firstRow[1].textContent === "O" &&
+    secondRow[1].textContent === "O" &&
+    thirdRow[1].textContent === "O"
+  ) {
+    pause = true;
+    DisplayModal("Red Won!");
+  } else if (
+    firstRow[2].textContent === "X" &&
+    secondRow[2].textContent === "X" &&
+    thirdRow[2].textContent === "X"
+  ) {
+    pause = true;
+    DisplayModal("Blue Won!");
+  } else if (
+    firstRow[2].textContent === "X" &&
+    secondRow[2].textContent === "X" &&
+    thirdRow[2].textContent === "X"
+  ) {
+    pause = true;
+    DisplayModal("Blue Won!");
+  } else if (
+    firstRow[0].textContent === "X" &&
+    secondRow[1].textContent === "X" &&
+    thirdRow[2].textContent === "X"
+  ) {
+    pause = true;
+    DisplayModal("Blue Won!");
+  } else if (
+    firstRow[0].textContent === "O" &&
+    secondRow[1].textContent === "O" &&
+    thirdRow[2].textContent === "O"
+  ) {
+    pause = true;
+    DisplayModal("Red Won!");
+  } else if (
+    firstRow[2].textContent === "X" &&
+    secondRow[1].textContent === "X" &&
+    thirdRow[0].textContent === "X"
+  ) {
+    pause = true;
+    DisplayModal("Blue Won!");
+  } else if (
+    firstRow[2].textContent === "O" &&
+    secondRow[1].textContent === "O" &&
+    thirdRow[0].textContent === "O"
+  ) {
+    pause = true;
+    DisplayModal("Red Won!");
   }
 }
