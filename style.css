@@ -30,11 +30,13 @@ main {
   color: red;
   width: 50%;
   height: 20%;
+  font-weight: bold;
 }
 .score-board-right {
   color: blue;
   width: 50%;
   height: 20%;
+  font-weight: bold;
 }
 .current-player {
   width: 100%;

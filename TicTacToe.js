@@ -3,11 +3,13 @@ var pause = false;
 var modalClose = document.getElementById("close");
 modalClose.addEventListener("click", close);
 document.getElementById("table").addEventListener("click", makeMove);
-
-var mappen = new Array(3).fill(new Array(3)).fill("");
+var restarted = false;
 var firstRow = new Array(3);
 var secondRow = new Array(3);
 var thirdRow = new Array(3);
+var blueScore = 0;
+var redScore = 0;
+var winner = "";
 
 var table = document.getElementById("table");
 
@@ -25,13 +27,23 @@ function WriteBoard() {
   if (!pause) {
     console.log("WriteBoard() function reached");
     var player = document.getElementById("current-player");
-
-    if (player.textContent === "Blue") {
+    if (restarted) {
+      player.textContent === "Blue";
+      restarted = false;
+    } else if (player.textContent === "Blue") {
       player.setAttribute("style", "color: blue; font-weight: bold;");
     } else {
       player.setAttribute("style", "color: red; font-weight: bold;");
     }
 
+    if (winner === "Blue") {
+      blueScore++;
+      document.getElementById("blue-score").textContent = blueScore;
+    } else if (winner === "Red") {
+      redScore++;
+      document.getElementById("red-score").textContent = redScore;
+    }
+    winner = "";
     //Count open slots everytime use clicks
 
     var slotsLeft = 0;
@@ -75,14 +87,18 @@ function makeMove(event) {
   WriteBoard();
 }
 
-function MainGameLoop() {}
-
 //Display Modal
 function DisplayModal(s) {
   let modal = document.getElementById("modal-holder");
   document.getElementById("modal-content").textContent = s;
   modal.style.display = "block";
   pause = true;
+
+  if (s === "Red Won!") {
+    winner = "Red";
+  } else {
+    winner = "Blue";
+  }
 }
 
 //Code for closebutton
@@ -117,6 +133,7 @@ function ResetBoard() {
 
   sign = "X";
   pause = false;
+  restarted = true;
   WriteBoard();
 }
 
@@ -149,6 +166,7 @@ function CheckWinner() {
     firstRow[2].textContent === "X"
   ) {
     pause = true;
+    winner = "blue";
     DisplayModal("Blue Won!");
   } else if (
     firstRow[0].textContent === "O" &&
@@ -156,6 +174,7 @@ function CheckWinner() {
     firstRow[2].textContent === "O"
   ) {
     pause = true;
+
     DisplayModal("Red Won!");
   } else if (
     secondRow[0].textContent === "X" &&
@@ -163,6 +182,7 @@ function CheckWinner() {
     secondRow[2].textContent === "X"
   ) {
     pause = true;
+    winner = "blue";
     DisplayModal("Blue Won!");
   } else if (
     secondRow[0].textContent === "O" &&
@@ -177,6 +197,7 @@ function CheckWinner() {
     thirdRow[2].textContent === "X"
   ) {
     pause = true;
+    winner = "blue";
     DisplayModal("Blue Won!");
   } else if (
     thirdRow[0].textContent === "O" &&
@@ -191,6 +212,7 @@ function CheckWinner() {
     thirdRow[0].textContent === "X"
   ) {
     pause = true;
+    winner = "blue";
     DisplayModal("Blue Won!");
   } else if (
     firstRow[0].textContent === "O" &&
@@ -205,6 +227,7 @@ function CheckWinner() {
     thirdRow[1].textContent === "X"
   ) {
     pause = true;
+    winner = "blue";
     DisplayModal("Blue Won!");
   } else if (
     firstRow[1].textContent === "O" &&
@@ -219,20 +242,22 @@ function CheckWinner() {
     thirdRow[2].textContent === "X"
   ) {
     pause = true;
+    winner = "blue";
     DisplayModal("Blue Won!");
   } else if (
-    firstRow[2].textContent === "X" &&
-    secondRow[2].textContent === "X" &&
-    thirdRow[2].textContent === "X"
+    firstRow[2].textContent === "O" &&
+    secondRow[2].textContent === "O" &&
+    thirdRow[2].textContent === "O"
   ) {
     pause = true;
-    DisplayModal("Blue Won!");
+    DisplayModal("Red Won!");
   } else if (
     firstRow[0].textContent === "X" &&
     secondRow[1].textContent === "X" &&
     thirdRow[2].textContent === "X"
   ) {
     pause = true;
+    winner = "blue";
     DisplayModal("Blue Won!");
   } else if (
     firstRow[0].textContent === "O" &&
@@ -247,6 +272,7 @@ function CheckWinner() {
     thirdRow[0].textContent === "X"
   ) {
     pause = true;
+    winner = "blue";
     DisplayModal("Blue Won!");
   } else if (
     firstRow[2].textContent === "O" &&
