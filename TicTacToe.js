@@ -69,22 +69,24 @@ function WriteBoard() {
 }
 
 function makeMove(event) {
-  var player = document.getElementById("current-player");
-  console.log("click");
+  if (!pause) {
+    var player = document.getElementById("current-player");
+    console.log("click");
 
-  let sign = "";
+    let sign = "";
 
-  if (event.target.textContent === "X" || event.target.textContent === "O") {
-    //Do nothing, since the cell was already taken by any player
-  } else {
-    player.textContent === "Blue" ? (sign = "X") : (sign = "O");
-    player.textContent === "Blue"
-      ? (player.textContent = "Red")
-      : (player.textContent = "Blue");
-    event.target.textContent = sign;
+    if (event.target.textContent === "X" || event.target.textContent === "O") {
+      //Do nothing, since the cell was already taken by any player
+    } else {
+      player.textContent === "Blue" ? (sign = "X") : (sign = "O");
+      player.textContent === "Blue"
+        ? (player.textContent = "Red")
+        : (player.textContent = "Blue");
+      event.target.textContent = sign;
+    }
+
+    WriteBoard();
   }
-
-  WriteBoard();
 }
 
 //Display Modal
