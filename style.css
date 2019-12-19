@@ -89,7 +89,7 @@ footer {
 
   height: 60%;
   width: 90%;
-  background-color: red;
+  background-color: Black;
   position: fixed;
   left: 50%;
   top: 50%;
@@ -97,12 +97,23 @@ footer {
   transition: all 0.7s linear;
 }
 .modal-heading {
+  background-color: black;
+  color: white;
 }
 .modal-content {
-  color: green;
+  color: White;
+  font-weight: bold;
+  font-size: 3rem;
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .modal-close {
   position: absolute;
+  color: white;
+  font-weight: bold;
   top: 0;
   right: 0;
 }
