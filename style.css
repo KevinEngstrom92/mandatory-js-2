@@ -50,37 +50,29 @@ canvas {
   width: 100%;
 }
 button {
-
   height: 40px;
   width: 70px;
-
-
 }
 
-table
-{
+table {
   height: 100%;
   width: 100%;
   border: 3px solid black;
   border-collapse: collapse;
   table-layout: fixed;
-
 }
 
-td
-{
+td {
   border: 3px solid black;
-  background-color: #A4B0BD;
+  background-color: #a4b0bd;
   transition: all 0.5s linear;
-
+  font-weight: bold;
 }
-td:hover
-{
-  background-color: #777E8B;
+td:hover {
+  background-color: #777e8b;
 }
 
-footer
-{
+footer {
   height: 20%;
   width: 100%;
   display: flex;
@@ -88,11 +80,9 @@ footer
   justify-content: center;
 }
 
-
 /*Modal Css*/
 
-.modal
-{
+.modal {
   z-index: 1;
 
   height: 60%;
@@ -103,31 +93,23 @@ footer
   top: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.7s linear;
-
 }
-.modal-heading
-{
-
+.modal-heading {
 }
-.modal-content
-{
+.modal-content {
   color: green;
 }
-.modal-close
-{
+.modal-close {
   position: absolute;
-  top:0;
-  right:0;
-
+  top: 0;
+  right: 0;
 }
 
-.modal-holder
-{
+.modal-holder {
   display: none;
 
   width: 100%;
   height: 100%;
   position: fixed;
-  background-color: rgba(0,0,0,0.8);
-
+  background-color: rgba(0, 0, 0, 0.8);
 }
